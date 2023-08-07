@@ -28,16 +28,24 @@ function operate(numA, op, numB) {
 
 // creates digit buttons
 
-const digits = document.getElementById('digits');
+const digits = document.getElementById('nine-digits');
 
-(function createDigits() {
-    for (let i = 0; i < 16; i++) {
+// (function createDigits() {
+//     for (let i = 0; i < 16; i++) {
+//         let digitButtons = document.createElement('button');
+//         digits.appendChild(digitButtons);
+//         digitButtons.textContent = [i];
+//         digitButtons.classList.add('digit-buttons')
+//     };
+// })()
+
+(function createDigitsToNine() {
+    for (let i = 1; i < 10; i++) {
         let digitButtons = document.createElement('button');
         digits.appendChild(digitButtons);
         digitButtons.textContent = [i];
         digitButtons.classList.add('digit-buttons')
     };
 })()
-
 
 
