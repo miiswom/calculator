@@ -1,6 +1,6 @@
-* {
-    /* border: 1px solid red; */
-}
+/* * {
+     border: 1px solid red; 
+} */
 
 #calc-screen {
     width: 220;
@@ -13,7 +13,7 @@
 
 #calc-body {
     width: 280px;
-    height: 300px;
+    height: 350px;
     background-color: darksalmon;
 }
 #container {
@@ -24,7 +24,7 @@
     flex-direction: row;
     width: 250px;
 }
-#nine-digits {
+.nine-digits-style {
     /* width: auto; */
     display: flex;
     justify-content: space-around;
@@ -33,11 +33,12 @@
     flex-direction: row-reverse;
 }
 
-.operator-buttons {
+.operator-buttons-style {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     flex-direction: column;
+    margin-left: 5px;
 
 }
 
