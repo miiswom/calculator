@@ -48,4 +48,14 @@ const digits = document.getElementById('nine-digits');
     };
 })()
 
+const rightContainerSide = document.getElementById('operators');
+
+(function createOperatorButtons() {
+    for (let i = 0; i < 3; i++) {
+        let operatorButton = document.createElement('button');
+        rightContainerSide.appendChild(operatorButton);
+        // digitButtons.textContent =
+        operatorButton.classList.add('digit-buttons', 'operator')
+    };
+})()
 
