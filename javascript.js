@@ -17,7 +17,8 @@ function divide(a, b) {
 
 // variables for each part of calculator operations
 let firstNum = 0;
-let operator = ['+', '-', '*', '/'];
+let operators = ['+', '-', '*', '/'];
+let numbers = [1,  2, 3, 4, 5, 6 , 7, 8, 9]
 let secondNum = 0;
 let result = '0'
 
@@ -25,16 +26,29 @@ function operate(numA, op, numB) {
     op = operatorClick.textContent;
     numA = firstDigitClick.textContent;
     numB = secondDigitClick.textContent;
-        if (op === operator[0]) {
+        if (op === operators[0]) {
         result = add(numA, numB);
-    } else if (op === operator[1]) {
+    } else if (op === operators[1]) {
         result = subtract(numA, numB);
-    } else if (op === operator[2]) {
+    } else if (op === operators[2]) {
         result = multiply(numA, numB);
-    } else if (op === operator[3]) {
+    } else if (op === createOperatorButtons[3]) {
         result = divide(numA, numB);
     } console.log(result);
 }
+
+// create operator buttons
+
+const rightContainerSide = document.getElementById('operators');
+
+(function createOperatorButtons() {
+    for (let i = 0; i < 4; i++) {
+        let operatorButton = document.createElement('button');
+        rightContainerSide.appendChild(operatorButton);
+        operatorButton.textContent = operators[i];
+        operatorButton.classList.add('digit-buttons', 'operators')
+    };
+})() 
 
 // creates digit buttons
 const digits = document.getElementById('nine-digits');
@@ -48,27 +62,16 @@ const digits = document.getElementById('nine-digits');
     };
 })()
 
+// print out the digit when clicked
+
 const digitClick = document.getElementsByClassName('numbers')
 
-for (let i=0; i < digitClick.length; i++) {
-    digitClick[i].addEventListener('click', test);
+for(let i = 0; i < 9; i++) {
+digitClick[i].addEventListener('click', () => {
+        console.log(digitClick[i].textContent)
+    } )
 }
 
-function test () {
-    console.log(digitClick.textContent)
-}
-// create operator buttons
-
-const rightContainerSide = document.getElementById('operators');
-
-(function createOperatorButtons() {
-    for (let i = 0; i < 4; i++) {
-        let operatorButton = document.createElement('button');
-        rightContainerSide.appendChild(operatorButton);
-        operatorButton.textContent = operator[i];
-        operatorButton.classList.add('digit-buttons', 'operators')
-    };
-})() 
 
 
 // let operatorButton = function () {
