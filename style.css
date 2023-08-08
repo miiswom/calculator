@@ -14,7 +14,7 @@
 
 #calc-body {
     width: 280px;
-    height: 350px;
+    height: 420px;
     background-color: darksalmon;
     padding-top: 10px;
 }
@@ -61,4 +61,11 @@
 
 .operators {
     font-weight: bold;
+}
+
+.clear {
+    width: 118px;
+    margin: 10px;
+    padding: 10px;
+    background-color: blueviolet;
 }

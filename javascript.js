@@ -23,19 +23,22 @@ let secondNum = 0;
 let result = '0'
 
 function operate(numA, op, numB) {
-    op = operatorClick.textContent;
-    numA = firstDigitClick.textContent;
-    numB = secondDigitClick.textContent;
+    for(let i = 0; i < 4; i++) {
+        // op = operators[i];
         if (op === operators[0]) {
-        result = add(numA, numB);
-    } else if (op === operators[1]) {
-        result = subtract(numA, numB);
-    } else if (op === operators[2]) {
-        result = multiply(numA, numB);
-    } else if (op === createOperatorButtons[3]) {
-        result = divide(numA, numB);
-    } console.log(result);
-}
+            result = add(numA, numB);
+            } else if (op === operators[1]) {
+                result = subtract(numA, numB);
+            } else if (op === operators[2]) {
+                result = multiply(numA, numB);
+            } else if (op === operators[3]) {
+                result = divide(numA, numB);
+            } return result;
+    } 
+}    
+    // numA = firstDigitClick.textContent;
+    // numB = secondDigitClick.textContent;
+
 
 // create operator buttons
 
