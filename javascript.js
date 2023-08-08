@@ -62,13 +62,23 @@ const digits = document.getElementById('nine-digits');
     };
 })()
 
-// print out the digit when clicked
+// print out the digit when button is clicked
 
 const digitClick = document.getElementsByClassName('numbers')
 
 for(let i = 0; i < 9; i++) {
 digitClick[i].addEventListener('click', () => {
         console.log(digitClick[i].textContent)
+    } )
+}
+
+// print out the digit when button is clicked
+
+const operatorClick = document.getElementsByClassName('operators');
+
+for(let i = 0; i < 4; i++) {
+operatorClick[i].addEventListener('click', () => {
+        console.log(operatorClick[i].textContent)
     } )
 }
 
@@ -82,6 +92,3 @@ digitClick[i].addEventListener('click', () => {
 //         operatorButton.classList.add('digit-buttons', 'operator')
 //     };
 // }
-
-let operatorClick = document.getElementsByClassName('operators');
-operatorClick[1].addEventListener('click', operate);
