@@ -11,15 +11,21 @@
     <h1>Calculator</h1>
     <div id="calc-body">
         <div id="calc-screen">
-            <p></p>
-            <p></p>
+            <p id="top-calc-screen">
+                <span id="num-a"></span>
+                <span id="operator"></span>
+                <span id="num-b"></span>
+            </p>
+            <p id="bottom-calc-screen">
+                <span id="operation"></span>
+            </p>
         </div>
         <div id="clear-button" >
             <button class="digit-buttons clear">CLEAR</button>
         </div>
         <div id="container">
             <div id="nine-digits" class="nine-digits-style">
-                <button class="digit-buttons" onclick="console.log('=')">=</button>
+                <button id="equal" class="digit-buttons" onclick="console.log('=')">=</button>
                 <button class="digit-buttons" style="width: 118px;" onclick="console.log('0')">0</button>
                 <!-- <button class="digit-buttons"></button> -->
             </div>

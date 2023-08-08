@@ -20,11 +20,21 @@ let firstNum = 0;
 let operators = ['+', '-', '*', '/'];
 let numbers = [1,  2, 3, 4, 5, 6 , 7, 8, 9]
 let secondNum = 0;
-let result = '0'
+let result = '';
+
 
 function operate(numA, op, numB) {
     for(let i = 0; i < 4; i++) {
-        // op = operators[i];
+        numA = a.textContent;
+        op = operator.textContent;
+        numB = b.textContent;
+        // const b = document.getElementById('num-b');
+        const operation = document.getElementById('operation');
+
+        // a.textContent = numA;
+        // operator.textContent = op;
+        // b.textContent = numB + " = ";
+
         if (op === operators[0]) {
             result = add(numA, numB);
             } else if (op === operators[1]) {
@@ -33,12 +43,15 @@ function operate(numA, op, numB) {
                 result = multiply(numA, numB);
             } else if (op === operators[3]) {
                 result = divide(numA, numB);
-            } return result;
+            } operation.textContent = result;
+            return result;
     } 
 }    
-    // numA = firstDigitClick.textContent;
-    // numB = secondDigitClick.textContent;
 
+//EQUAL function
+const equal = document.getElementById('equal');
+
+equal.addEventListener('click', operate)
 
 // create operator buttons
 
@@ -69,29 +82,37 @@ const digits = document.getElementById('nine-digits');
 
 const digitClick = document.getElementsByClassName('numbers')
 
+const a = document.getElementById('num-a');
+const b = document.getElementById('num-b');
+
 for(let i = 0; i < 9; i++) {
-digitClick[i].addEventListener('click', () => {
-        console.log(digitClick[i].textContent)
+    digitClick[i].addEventListener('click', () => {
+        if (!a.textContent) {
+            a.textContent = digitClick[i].textContent;
+        } else {
+            b.textContent = digitClick[i].textContent;
+        }
     } )
 }
-
-// print out the digit when button is clicked
-
+    
+    // print out the operator when button is clicked
+    
 const operatorClick = document.getElementsByClassName('operators');
-
+const operator = document.getElementById('operator');
+  
 for(let i = 0; i < 4; i++) {
-operatorClick[i].addEventListener('click', () => {
-        console.log(operatorClick[i].textContent)
-    } )
+    operatorClick[i].addEventListener('click', () => {
+        operator.textContent = operatorClick[i].textContent;
+        } )
 }
 
+// CLEAR function
 
+const clear = document.getElementById('clear-button');
 
-// let operatorButton = function () {
-//     for (let i = 0; i < 4; i++) {
-//         document.createElement('button');
-//         rightContainerSide.appendChild(operatorButton);
-//         operatorButton.textContent = operator[i];
-//         operatorButton.classList.add('digit-buttons', 'operator')
-//     };
-// }
+clear.addEventListener('click', () => {
+    a.textContent = '';
+    b.textContent = '';
+    operator.textContent = '';
+    operation.textContent = '';
+})
