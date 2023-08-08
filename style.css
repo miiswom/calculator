@@ -4,10 +4,11 @@
 
 #calc-screen {
     width: 220;
-    height: 30px;
+    height: 50px;
     background-color: darkgray;
     border: 1px solid black;
-    margin: 0;
+    margin: 10px;
+    margin-top: 10px;
     padding: 5px;
 }
 
@@ -15,6 +16,7 @@
     width: 280px;
     height: 350px;
     background-color: darksalmon;
+    padding-top: 10px;
 }
 #container {
     display: flex;
@@ -37,7 +39,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
+    flex-direction: column-reverse;
     margin-left: 5px;
 
 }
@@ -51,4 +53,12 @@
     text-align: center;
     margin-top: 5px;
     margin-bottom: 5px;
+}
+
+.numbers {
+    font-style: italic;
+}
+
+.operators {
+    font-weight: bold;
 }
