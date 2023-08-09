@@ -37,7 +37,7 @@ function operate(numA, op, numB) {
                 result = multiply(numA, numB);
             } else if (op === operators[3]) {
                 result = divide(numA, numB);
-            } operation.textContent = result;
+            } operation.textContent = Math.round(result * 100) / 100;
             return result;
     } 
 }    
@@ -60,6 +60,7 @@ const rightContainerSide = document.getElementById('operators');
     };
 })() 
 
+
 // creates digit buttons
 const digits = document.getElementById('nine-digits');
 
@@ -72,7 +73,7 @@ const digits = document.getElementById('nine-digits');
     };
 })()
 
-// print out the digit when button is clicked
+// print out the DIGIT when button is clicked
 
 const digitClick = document.getElementsByClassName('numbers')
 
@@ -85,57 +86,78 @@ for(let i = 0; i < 9; i++) {
     digitClick[i].addEventListener('click', () => {
         if (!operator.textContent) {
             a.textContent += digitClick[i].textContent;
-        } else if(operator.textContent){
+        } else if(operator.textContent && !operation.textContent){
             b.textContent += digitClick[i].textContent;
-        }
-    } )
-}
+        } else if (operator.textContent && operation.textContent) 
+            { a.textContent = digitClick[i].textContent;
+                operator.textContent = '';
+                b.textContent = '';
+                operation.textContent = '';
+
+
+        }            
+        })
+    }
 
 // ADD EVENT TO ZERO BUTTON 
 
 const zeroButton = document.getElementById('zero-button');
 
 zeroButton.addEventListener('click', () => {
-    if (!operator.textContent) {
+    if (!operator.textContent && a.textContent) {
         a.textContent = a.textContent + '0';
-    } else if(operator.textContent) {
+    } else if(operator.textContent && b.textContent && !operation.textContent) {
         b.textContent = b.textContent + '0';
+    } else if (b.textContent && operation.textContent) {
+        a.textContent = '';
+        b.textContent = '';
+        operator.textContent = '';
+        operation.textContent = '';   
     }
 }
 );
-    
-// print out the operator when button is clicked
+
+// print out the OPERATOR when button is clicked
     
 const operatorClick = document.getElementsByClassName('operators');
 const operator = document.getElementById('operator');
   
 for(let i = 0; i < 4; i++) {
     operatorClick[i].addEventListener('click', () => {
-        operator.textContent = operatorClick[i].textContent;
-        } )
-}
+        if(!operator.textContent) {
+            operator.textContent = operatorClick[i].textContent;
+        } else {
+            a.textContent = operation.textContent;
+            operation.textContent = '';
+            b.textContent = '';
+            operator.textContent = operatorClick[i].textContent;        
+        }
+    }
+)}
 
 // CLEAR function
 
 const clear = document.getElementById('clear');
 
-clear.addEventListener('click', () => {
-    a.textContent = '';
-    b.textContent = '';
-    operator.textContent = '';
-    operation.textContent = '';
-})
+clear.addEventListener('click', clearAll)
+
+function clearAll() { 
+        a.textContent = '';
+        b.textContent = '';
+        operator.textContent = '';
+        operation.textContent = '';
+    }
 
 // REMOVE FUNCTION 
 
 const remove = document.getElementById('remove');
 
-// remove.addEventListener('click', () => {
-//     if (!operator.textContent) {
-//     a.textContent = a.textContent.substring(0, a.textContent.length -1);
-//     return a.textContent
-//     } else if (operator.textContent) {
-//     b.textContent = b.textContent.substring(0, b.textContent.length -1);
-//     return b.textContent
-//     }
-// })
+remove.addEventListener('click', () => {
+    if (!operator.textContent) {
+    a.textContent = a.textContent.substring(0, a.textContent.length -1);
+    return a.textContent
+    } else if (operator.textContent) {
+    b.textContent = b.textContent.substring(0, b.textContent.length -1);
+    return b.textContent
+    }
+})
