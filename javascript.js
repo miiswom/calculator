@@ -28,7 +28,6 @@ function operate(numA, op, numB) {
         numA = a.textContent;
         op = operator.textContent;
         numB = b.textContent;
-
         if (op === operators[0]) {
             result = add(numA, numB);
             } else if (op === operators[1]) {
@@ -38,7 +37,7 @@ function operate(numA, op, numB) {
             } else if (op === operators[3]) {
                 result = divide(numA, numB);
             } operation.textContent = Math.round(result * 100) / 100;
-            return result;
+            return result.toFixed(2);
     } 
 }    
 
@@ -116,6 +115,29 @@ zeroButton.addEventListener('click', () => {
     }
 }
 );
+
+// // ADD EVENT DECIMAL BUTTON 
+// const decimal = document.getElementById('decimal')
+// decimal.addEventListener('click', () => {
+//     if (!operator.textContent && !a.textContent) {
+//         a.textContent = '0.';
+//         // parseFloat(a.textContent);
+//     } else if(!a.textContent.includes('.') && !operator.textContent) {
+//         a.textContent = a.textContent + '.';
+//     } else if(operator.textContent && !b.textContent) {
+//         b.textContent = '0.';
+//         // parseFloat(b.textContent)
+//     } else if(operator.textContent && !b.textContent.includes('.')) {
+//         b.textContent = b.textContent + '.';
+//         // parseFloat(b.textContent)
+//     } else if (a.textContent && a.textContent.includes('.')) {
+//         // parseFloat(a.textContent)
+//         return;
+//     } else if (b.textContent && b.textContent.includes('.')) {
+//         // parseFloat(b.textContent)
+//         return;
+//     }
+// })
 
 // print out the OPERATOR when button is clicked
     

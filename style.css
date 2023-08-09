@@ -5,6 +5,7 @@
 body {
     background-color: rgb(217, 156, 206);
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     flex-direction: column;
