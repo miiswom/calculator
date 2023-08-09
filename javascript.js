@@ -1,18 +1,18 @@
 // basic math operations
 function add(a, b) {
-    return a + b;
+    return parseInt(a) + parseInt(b);
 };
 
 function subtract(a, b) {
-    return a - b;
+    return parseInt(a) - parseInt(b);
 };
 
 function multiply(a, b) {
-    return a * b;
+    return parseInt(a) * parseInt(b);
 };
 
 function divide(a, b) {
-    return a / b;
+    return parseInt(a) / parseInt(b);
 };
 
 // variables for each part of calculator operations
@@ -20,7 +20,7 @@ let firstNum = 0;
 let operators = ['+', '-', '*', '/'];
 let numbers = [1,  2, 3, 4, 5, 6 , 7, 8, 9]
 let secondNum = 0;
-let result = '';
+let result = 0;
 
 
 function operate(numA, op, numB) {
@@ -28,12 +28,6 @@ function operate(numA, op, numB) {
         numA = a.textContent;
         op = operator.textContent;
         numB = b.textContent;
-        // const b = document.getElementById('num-b');
-        const operation = document.getElementById('operation');
-
-        // a.textContent = numA;
-        // operator.textContent = op;
-        // b.textContent = numB + " = ";
 
         if (op === operators[0]) {
             result = add(numA, numB);
@@ -84,18 +78,33 @@ const digitClick = document.getElementsByClassName('numbers')
 
 const a = document.getElementById('num-a');
 const b = document.getElementById('num-b');
+const operation = document.getElementById('operation');
+
 
 for(let i = 0; i < 9; i++) {
     digitClick[i].addEventListener('click', () => {
-        if (!a.textContent) {
-            a.textContent = digitClick[i].textContent;
-        } else {
-            b.textContent = digitClick[i].textContent;
+        if (!operator.textContent) {
+            a.textContent += digitClick[i].textContent;
+        } else if(operator.textContent){
+            b.textContent += digitClick[i].textContent;
         }
     } )
 }
+
+// ADD EVENT TO ZERO BUTTON 
+
+const zeroButton = document.getElementById('zero-button');
+
+zeroButton.addEventListener('click', () => {
+    if (!operator.textContent) {
+        a.textContent = a.textContent + '0';
+    } else if(operator.textContent) {
+        b.textContent = b.textContent + '0';
+    }
+}
+);
     
-    // print out the operator when button is clicked
+// print out the operator when button is clicked
     
 const operatorClick = document.getElementsByClassName('operators');
 const operator = document.getElementById('operator');
@@ -108,7 +117,7 @@ for(let i = 0; i < 4; i++) {
 
 // CLEAR function
 
-const clear = document.getElementById('clear-button');
+const clear = document.getElementById('clear');
 
 clear.addEventListener('click', () => {
     a.textContent = '';
@@ -116,3 +125,17 @@ clear.addEventListener('click', () => {
     operator.textContent = '';
     operation.textContent = '';
 })
+
+// REMOVE FUNCTION 
+
+const remove = document.getElementById('remove');
+
+// remove.addEventListener('click', () => {
+//     if (!operator.textContent) {
+//     a.textContent = a.textContent.substring(0, a.textContent.length -1);
+//     return a.textContent
+//     } else if (operator.textContent) {
+//     b.textContent = b.textContent.substring(0, b.textContent.length -1);
+//     return b.textContent
+//     }
+// })

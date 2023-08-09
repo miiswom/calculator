@@ -20,13 +20,14 @@
                 <span id="operation"></span>
             </p>
         </div>
-        <div id="clear-button" >
-            <button class="digit-buttons clear">CLEAR</button>
+        <div id="clear-buttons" >
+            <button id="clear" class="digit-buttons clear">CLEAR</button>
+            <button id="remove" class="digit-buttons">C</button>
         </div>
         <div id="container">
             <div id="nine-digits" class="nine-digits-style">
+                <button id ="zero-button" class="digit-buttons" style="width: 118px;">0</button>
                 <button id="equal" class="digit-buttons" onclick="console.log('=')">=</button>
-                <button class="digit-buttons" style="width: 118px;" onclick="console.log('0')">0</button>
                 <!-- <button class="digit-buttons"></button> -->
             </div>
             <div id="operators" class="operator-buttons-style"></div>
