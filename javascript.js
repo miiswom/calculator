@@ -143,10 +143,10 @@ decimal.addEventListener('click', () => {
     } else if(operator.textContent && !b.textContent.includes('.')) {
         b.textContent = b.textContent + '.';
         // parseFloat(b.textContent)
-    } else if (a.textContent && a.textContent.includes('.')) {
+    } else if (a.textContent && a.textContent.includes('.') || operation.textContent) {
         // parseFloat(a.textContent)
         return;
-    } else if (b.textContent && b.textContent.includes('.')) {
+    } else if (b.textContent && b.textContent.includes('.') || operation.textContent) {
         // parseFloat(b.textContent)
         return;
     }
