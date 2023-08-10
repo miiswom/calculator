@@ -194,11 +194,13 @@ const remove = document.getElementById('remove');
 remove.classList.add('btn');
 
 remove.addEventListener('click', () => {
-    if (!operator.textContent) {
+    if (!operator.textContent && !operation.textContent) {
     a.textContent = a.textContent.substring(0, a.textContent.length -1);
     return a.textContent
-    } else if (operator.textContent) {
+    } else if (operator.textContent && !operation.textContent) {
     b.textContent = b.textContent.substring(0, b.textContent.length -1);
     return b.textContent
+    } else if(a.textContent && b.textContent && operation.textContent) {
+        clearAll();
     }
 })

@@ -109,7 +109,7 @@ h1 {
     width: 168px;
     margin: 10px;
     padding: 10px;
-    background-color: rgb(237, 114, 114);
+    background-color: rgb(233, 167, 167);
     border-radius: 5%;
 }
 
@@ -123,4 +123,12 @@ button {
 
 .btn:active {
     background-color: rgb(197, 187, 170);
+}
+
+#equal {
+    background-color: rgb(196, 211, 189);
+}
+
+#remove {
+    background-color: rgb(253, 213, 139);
 }
