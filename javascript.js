@@ -28,7 +28,11 @@ function operate(numA, op, numB) {
         numA = a.textContent;
         op = operator.textContent;
         numB = b.textContent;
-        if (op === operators[0]) {
+        if(a.textContent && !op && !b.textContent) {
+            result = a.textContent;
+        } else if (a.textContent && op && !b.textContent) {
+            return
+        } else if (op === operators[0]) {
             result = add(numA, numB);
             } else if (op === operators[1]) {
                 result = subtract(numA, numB);
@@ -55,7 +59,7 @@ const rightContainerSide = document.getElementById('operators');
         let operatorButton = document.createElement('button');
         rightContainerSide.appendChild(operatorButton);
         operatorButton.textContent = operators[i];
-        operatorButton.classList.add('digit-buttons', 'operators')
+        operatorButton.classList.add('digit-buttons', 'operators', 'btn')
     };
 })() 
 
@@ -68,7 +72,7 @@ const digits = document.getElementById('nine-digits');
         let digitButtons = document.createElement('button');
         digits.appendChild(digitButtons);
         digitButtons.textContent = [i];
-        digitButtons.classList.add('digit-buttons', 'numbers')
+        digitButtons.classList.add('digit-buttons', 'numbers', 'btn')
     };
 })()
 
@@ -80,9 +84,16 @@ const a = document.getElementById('num-a');
 const b = document.getElementById('num-b');
 const operation = document.getElementById('operation');
 
+// const buttons = document.getElementsByTagName('button');
+
+// buttons.addEventListener('click', () => {
+//     buttons.style.backgrounColor = rgb(133, 132, 132);
+// })
+
 
 for(let i = 0; i < 9; i++) {
     digitClick[i].addEventListener('click', () => {
+        
         if (!operator.textContent) {
             a.textContent += digitClick[i].textContent;
         } else if(operator.textContent && !operation.textContent){
@@ -92,8 +103,7 @@ for(let i = 0; i < 9; i++) {
                 operator.textContent = '';
                 b.textContent = '';
                 operation.textContent = '';
-
-
+                result = a.textContent;
         }            
         })
     }
@@ -101,6 +111,7 @@ for(let i = 0; i < 9; i++) {
 // ADD EVENT TO ZERO BUTTON 
 
 const zeroButton = document.getElementById('zero-button');
+zeroButton.classList.add('btn');
 
 zeroButton.addEventListener('click', () => {
     if (!operator.textContent && a.textContent) {
@@ -117,7 +128,9 @@ zeroButton.addEventListener('click', () => {
 );
 
 // // ADD EVENT DECIMAL BUTTON 
-const decimal = document.getElementById('decimal')
+const decimal = document.getElementById('decimal');
+decimal.classList.add('btn');
+
 decimal.addEventListener('click', () => {
     if (!operator.textContent && !a.textContent) {
         a.textContent = '0.';
@@ -143,10 +156,13 @@ decimal.addEventListener('click', () => {
     
 const operatorClick = document.getElementsByClassName('operators');
 const operator = document.getElementById('operator');
-  
+
+
 for(let i = 0; i < 4; i++) {
     operatorClick[i].addEventListener('click', () => {
         if(!operator.textContent) {
+            operator.textContent = operatorClick[i].textContent;
+        } else if (operator.textContent && !b.textContent) {
             operator.textContent = operatorClick[i].textContent;
         } else {
             a.textContent = operation.textContent;
@@ -154,12 +170,13 @@ for(let i = 0; i < 4; i++) {
             b.textContent = '';
             operator.textContent = operatorClick[i].textContent;        
         }
-    }
-)}
+    })}
+
 
 // CLEAR function
 
 const clear = document.getElementById('clear');
+clear.classList.add('btn');
 
 clear.addEventListener('click', clearAll)
 
@@ -170,9 +187,11 @@ function clearAll() {
         operation.textContent = '';
     }
 
+
 // REMOVE FUNCTION 
 
 const remove = document.getElementById('remove');
+remove.classList.add('btn');
 
 remove.addEventListener('click', () => {
     if (!operator.textContent) {

@@ -118,4 +118,9 @@ h1 {
 }
 
 button {
-    box-shadow: 1px 5px 5px rgb(133, 132, 132);}
+    box-shadow: 1px 5px 5px rgb(133, 132, 132);
+}
+
+.btn:active {
+    background-color: rgb(197, 187, 170);
+}
