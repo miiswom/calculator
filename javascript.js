@@ -1,18 +1,18 @@
 // basic math operations
 function add(a, b) {
-    return parseInt(a) + parseInt(b);
+    return parseFloat(a) + parseFloat(b);
 };
 
 function subtract(a, b) {
-    return parseInt(a) - parseInt(b);
+    return parseFloat(a) - parseFloat(b);
 };
 
 function multiply(a, b) {
-    return parseInt(a) * parseInt(b);
+    return parseFloat(a) * parseFloat(b);
 };
 
 function divide(a, b) {
-    return parseInt(a) / parseInt(b);
+    return parseFloat(a) / parseFloat(b);
 };
 
 // variables for each part of calculator operations
@@ -117,27 +117,27 @@ zeroButton.addEventListener('click', () => {
 );
 
 // // ADD EVENT DECIMAL BUTTON 
-// const decimal = document.getElementById('decimal')
-// decimal.addEventListener('click', () => {
-//     if (!operator.textContent && !a.textContent) {
-//         a.textContent = '0.';
-//         // parseFloat(a.textContent);
-//     } else if(!a.textContent.includes('.') && !operator.textContent) {
-//         a.textContent = a.textContent + '.';
-//     } else if(operator.textContent && !b.textContent) {
-//         b.textContent = '0.';
-//         // parseFloat(b.textContent)
-//     } else if(operator.textContent && !b.textContent.includes('.')) {
-//         b.textContent = b.textContent + '.';
-//         // parseFloat(b.textContent)
-//     } else if (a.textContent && a.textContent.includes('.')) {
-//         // parseFloat(a.textContent)
-//         return;
-//     } else if (b.textContent && b.textContent.includes('.')) {
-//         // parseFloat(b.textContent)
-//         return;
-//     }
-// })
+const decimal = document.getElementById('decimal')
+decimal.addEventListener('click', () => {
+    if (!operator.textContent && !a.textContent) {
+        a.textContent = '0.';
+        // parseFloat(a.textContent);
+    } else if(!a.textContent.includes('.') && !operator.textContent) {
+        a.textContent = a.textContent + '.';
+    } else if(operator.textContent && !b.textContent) {
+        b.textContent = '0.';
+        // parseFloat(b.textContent)
+    } else if(operator.textContent && !b.textContent.includes('.')) {
+        b.textContent = b.textContent + '.';
+        // parseFloat(b.textContent)
+    } else if (a.textContent && a.textContent.includes('.')) {
+        // parseFloat(a.textContent)
+        return;
+    } else if (b.textContent && b.textContent.includes('.')) {
+        // parseFloat(b.textContent)
+        return;
+    }
+})
 
 // print out the OPERATOR when button is clicked
     
