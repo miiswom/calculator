@@ -200,7 +200,7 @@ remove.addEventListener('click', () => {
     } else if (operator.textContent && !operation.textContent) {
     b.textContent = b.textContent.substring(0, b.textContent.length -1);
     return b.textContent
-    } else if(a.textContent && b.textContent && operation.textContent) {
+    } else if(b.textContent && operation.textContent) {
         clearAll();
     }
 })
